@@ -186,7 +186,7 @@ useEffect(()=> {
 useEffect(()=>{
     const intervalCall = setInterval(() => {
         updatedata()
-    }, 3000);
+    }, 7000);
     return () => {
       // clean up
       clearInterval(intervalCall);
