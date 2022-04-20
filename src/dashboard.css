@@ -1,0 +1,45 @@
+.dashDivMain {
+    display: flex;
+    flex-direction: column;
+    /* width: 300px;
+    height: 500px; */
+    /* justify-self: center;
+    justify-content: center; */
+    /* justify-items: center; */
+    /* justify-tracks: center; */
+    /* align-self: center; */
+    align-items: center;
+    /* align-content: center; */
+    /* background-color: grey ; */
+    padding-top: 4%;
+    width: auto;
+}
+.dashDiv2Main {
+    background-color: rgb(255, 238, 238);
+    display: flex;
+    justify-items: auto;
+    justify-content:space-evenly;
+    /* justify-self: auto; */
+    flex-direction: row;
+}
+.dashDiv2 {
+    background-color:  rgb(255, 238, 238);
+    width: fit-content;
+    padding: 100px;
+    padding-top: 10px;
+    margin: 100px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.dashDiv3 {
+    background-color:  rgb(255, 238, 238);
+    width: fit-content;
+    padding: 100px;
+    padding-top: 10px;
+    margin: 100px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.orderitems {
+    margin-left: 30px;
+}

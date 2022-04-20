@@ -1,0 +1,105 @@
+.mainTopDiv{
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    
+}
+.secondDiv {
+    display: flex;
+}
+.mainMiniBlocks {
+    /* background-color: beige; */
+
+}
+.blocksColumn {
+    display: flex;
+    justify-content: space-evenly;
+}
+.block {
+    height: 200px;
+    width: 350px;
+    margin-bottom: 100px;
+    /* justify-content: center; */
+    /* align-content: center; */
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+.pizzaTitle {
+    text-align: center;
+    background-color: red;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+.pizzapicImg {
+    /* justify-content: center; */
+    object-fit: cover;
+    margin-bottom: 5px;   
+    /* align-self: center; */
+    /* justify-self: center; */
+    background-color: blue;
+}
+.blockBottom {
+    /* background-color: yellow; */
+}
+.inputGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+.inputDecrement {
+    border: 2px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10%;
+    align-self: center;
+    /* margin-right: 10px; */
+}
+.inputCounter {
+    border-bottom: 2px solid black;
+    padding-left: 20px;
+    align-self: center;
+    padding-right: 20px;
+    /* margin-right: 10px; */
+}
+.inputIncrement {
+    border: 2px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10%;
+    align-self: center;
+
+}
+.priceDiv {
+    /* display: flex; */
+    background-color: red;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    /* margin-bottom: 2%; */
+}
+.addToCart {
+    /* height: auto; */
+    width: 10%;
+    margin-left: auto;
+    background-color: #10bd10;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    justify-tracks : center;
+    padding: 10px;
+    margin-right: 15px;
+}
+
+
+.inputIncrement:hover, .inputDecrement:hover {
+    cursor: grab;
+    color:black;
+}
+.addToCart:hover {
+    background-color: #105610;
+}

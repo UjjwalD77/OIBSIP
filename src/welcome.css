@@ -1,0 +1,34 @@
+.mainDiv {
+    display: flex;
+    /* flex-direction: column; */
+    background-color: white;
+    justify-self: center;
+    justify-content: center;
+}
+
+.toggleBar {
+    display: flex;
+    padding: 2%;
+    text-align: center;
+    /* flex-direction: column; */ 
+    justify-self: center;
+    justify-content: center;
+    border-bottom: 5px solid red; 
+}
+
+.active_toolbar_class {
+    background-color: green;
+    margin:5%;
+    padding: 5%;
+}
+.unactive_toolbar_class {
+    background-color: white;
+    margin:5%;  
+    padding: 5%;
+
+}
+
+.infoTab {
+    display: flex;
+    flex-direction: column;
+}

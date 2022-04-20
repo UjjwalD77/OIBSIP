@@ -1,0 +1,21 @@
+.divVerifyMain {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+.gotoLoginButton {
+    width: 200px;
+    padding: 20px;
+    background-color: orange;
+    text-align: center;
+    font-weight: 900;
+    font-size: 25px;
+    align-self: center;
+    justify-self: center;
+    text-decoration: none;
+}
+.verifyLINKLINK {
+    text-decoration: none;
+    cursor: pointer;
+    color:black
+}

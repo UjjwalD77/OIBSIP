@@ -1,0 +1,23 @@
+.mainToastDiv {
+    position: absolute;
+    /* display: flex;  */
+    /* flex-direction: row; */
+    /* width: 300px; */
+    padding: 15px;
+    margin-right: 20px;
+    /* background-color:green; */
+    background-color: rgb(51, 48, 201);
+    align-self: flex-end;
+    justify-self: flex-end;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    border-bottom: 4px solid red;
+    border-bottom-right-radius: 0px;
+    font-weight: 600;
+}
+.toastabove {
+    display: flex;
+    flex-direction: row-reverse;
+}

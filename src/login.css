@@ -1,0 +1,68 @@
+.loginMain {
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+}
+.blockMain {
+    background-color:  white;
+    width: 500px;
+    height: 500px;
+    align-self: center;
+    margin: 60px;
+    border-radius: 5%;
+    border: 1px solid black;
+    flex-direction: row;
+}
+.inputDiv{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.inputName{
+    justify-content: center;
+    justify-self: center;
+    width: 320px;
+    height: 30px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.buttonDiv {
+    display: flex;
+    height: 100px;
+    width: auto;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    
+}
+.button {
+    display: flex;
+    text-align: center;
+    justify-items: center;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    height: 60px;
+    width: 50%;
+    color: white;
+    font-weight: 900;
+    letter-spacing: 2px;
+    user-select: none;
+}
+/* .text {
+font-weight: 400;
+background-color: brown;
+} */
+
+.button:hover {
+    background-color: green;
+    cursor:grab;
+
+}
