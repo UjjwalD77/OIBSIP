@@ -2,7 +2,7 @@ import React from 'react'
 
 function AdminDash() {
   return (
-    <div>AdminDash</div>
+    <h1>Inventory</h1>
   )
 }
 

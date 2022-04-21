@@ -27,7 +27,7 @@ const AdminCurrentOrders = () => {
     
     function StatusDropDown(props) {
         const [listIsOpen, setListIsOpen] = useState(false);
-        const [listVals,setListVal] = useState(['Order Recieved','Being Prepared','Out for Delivery']);
+        const [listVals,setListVal] = useState(['Order Recieved','Being Prepared','Out for Delivery','Order Delivered']);
 
         const handleUpdate = (val) => {
             // console.log('before');
@@ -97,9 +97,13 @@ const AdminCurrentOrders = () => {
         tempvalues = [];
         buttonarr = [];
         ordstatusarr = [];
+        orderidarr = [];
+        ordertimearr = [];
+        amountarr = [];
+        namearr = [];
         try{
 
-            const res = await axios.post(navigationStrings.urlGetOrder);
+            const res = await axios.post(navigationStrings.urlGetOrder,{type: 'current'});
             if(res.status === 200){
                 console.log(res.data);
                 for (const key in res.data) {
@@ -114,6 +118,15 @@ const AdminCurrentOrders = () => {
                                 }
                                 else if (key === 'status'){
                                     ordstatusarr.push(<StatusDropDown status={innerele} orderId={element['orderId']} />)
+                                }
+                                else if (key === 'user'){
+                                    namearr.push(<h3>{innerele["name"]}</h3>)
+                                }
+                                else if (key === 'amount'){
+                                    amountarr.push(<h3>{innerele} Rs</h3>)
+                                }
+                                else if (key === 'createdAt'){
+                                    ordertimearr.push(<h3>{innerele}</h3>)
                                 }
                             }
                         }
@@ -134,7 +147,7 @@ const AdminCurrentOrders = () => {
     const getorders = async()=>{
         try{
 
-            const res = await axios.post(navigationStrings.urlGetOrder);
+            const res = await axios.post(navigationStrings.urlGetOrder,{type: 'current'});
             if(res.status === 200){
                 console.log(res.data);
                 for (const key in res.data) {
