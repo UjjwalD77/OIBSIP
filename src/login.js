@@ -7,12 +7,14 @@ import { Link, Navigate } from 'react-router-dom';
 import navigationStrings from './constants/navigationStrings';
 import {authContext} from './context'
 import Toast from './components/toast';
+import Spinner from './components/Spinner';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {setToken,setId,user,setUserType} = useContext(authContext);
   const [loginError, setLoginError] = useState(false);
+  const [isLoading, setIsLoding] = useState(false);
   const handleAdminLogin = async () => {
     if(email === 'admin' && password === 'admin'){
       setUserType('admin')
@@ -23,7 +25,9 @@ function Login() {
     // alert(`${email} ${password}`)
 
     try{
+        setIsLoding(true)
         const res = await axios.post(navigationStrings.urlLogin,{email,password});
+        setIsLoding(false)
         await console.log(res.status);
         if(res.status === 200){
           console.log(res)
@@ -55,6 +59,7 @@ function Login() {
     return (
       <>
         {/* <Header/>  CHANGE THIS LATER*/}
+        {isLoading && <Spinner/>}
       <Toast val={'Invalid Email or Password'} hidden={loginError?false:true}/>
         <div className='loginMain'>
             <div className='blockMain'>

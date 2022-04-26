@@ -21,7 +21,7 @@
     border-radius: 50px;
   }
 
-.active_navbar_class:hover, .unactive_navbar_class:hover {
+.active_usernavbar_class:hover, .unactive_usernavbar_class:hover {
     font-size: 20px;
     background-color: blue;
     border: 2px solid white;

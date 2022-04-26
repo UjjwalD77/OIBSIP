@@ -1,0 +1,93 @@
+.divDashMain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly   ;    
+    align-self: center;
+    flex-wrap: wrap;
+    /* background-color: grey; */
+        /* overflow-y: hidden;
+        overflow-x: auto; */
+        /* margin: auto; */
+}
+.divDashBlock{
+    background-color: white;
+    margin-bottom: 20px;
+}
+.divDashBlockHeader{
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+}
+.divDashBlockBody{
+    /* background-color: red; */    
+    color: black;
+    font-size: 20px;
+    padding: 30px;
+    font-weight: 700;
+    border: 2px solid blue;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+.updateButton {
+    background-color: rgb(75, 16, 75);
+    padding: 20px;
+    color: white;
+    font-weight: 900;
+    letter-spacing: 10px;
+    text-align: center;
+    user-select: none;
+    font-size: 20px;
+}
+.dashButtonMain {
+    position: absolute;
+    display: flex;
+    height: 87%;
+    width: 100%;
+    background-color: rgb(108, 180, 108, 0.75);
+    user-select: none;
+}
+.dashButtonInner {
+    /* height: 300px;
+    width: 399px; */
+    background-color: lightcyan;
+    padding: 0px 40px ;
+    /* position: absolute; */
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+    user-select: none;
+    /* border: 3px solid black; */
+}
+.dashButtonHeader {
+    display: flex;
+    /* position: absolute; */
+    width: 100%;
+    flex-direction: column;
+    margin-left: 40px;
+    
+}
+.dashButtonCloseHeader{
+    align-self: flex-end;
+    background-color: black;
+    /* border: 3px solid red; */
+    /* background-color: yellow; */
+}
+.adminDashInpBox{
+    padding: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+.updateInnerButtonMain{
+    height: 30px;
+    margin: 10px 30%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    justify-self: center;
+    font-size: 20px;
+    padding: 20px;
+    user-select: none;
+}

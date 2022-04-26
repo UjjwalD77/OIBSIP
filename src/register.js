@@ -3,16 +3,22 @@ import './register.css'
 // import Header from './header'    
 import axios from 'axios';
 import navigationStrings from './constants/navigationStrings';
-import Toast from './components/toast'
+import Toast from './components/toast';
+import Spinner from './components/Spinner';
+
 function Register() {
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [registered, setRegistered] = useState(false);
+    const [isLoading, setIsLoading] = useState(false)
+
     const handleClick = async () => {
         
         try{
+            setIsLoading(true)
             const res = await axios.post(navigationStrings.urlRegister, {name,email,password});
+            setIsLoading(false)
             await console.log(res);
             if(res.status === 201){
                 setRegistered(true);
@@ -38,6 +44,7 @@ function Register() {
     }
     return (
         <>
+        {isLoading && <Spinner/>}
         {/* <Header/>  CHANGE THIS LATER*/}
         <Toast  val='Verification Email sent.'  hidden={registered?false:true} />
         <div className='registerMain'>

@@ -19,6 +19,7 @@ function AdminNavbar(props) {
         <NavLink exact className={(navData) => navData.isActive ? "active_navbar_class" : "unactive_navbar_class" } to="/" > Dashboard </NavLink>
         <NavLink exact className={(navData) => navData.isActive ? "active_navbar_class" : "unactive_navbar_class" } to="/currentorders" > Current Orders </NavLink>
         <NavLink exact className={(navData) => navData.isActive ? "active_navbar_class" : "unactive_navbar_class" } to="/orders " > All Orders </NavLink>
+        <NavLink exact className={(navData) => navData.isActive ? "active_navbar_class" : "unactive_navbar_class" } to="/users " > Users </NavLink>
         {/* <NavLink exact className={(navData) => navData.isActive ? "active_navbar_class" : "unactive_navbar_class" } to="/dashboard" > Dashboard </NavLink>
         <NavLink exact className={(navData) => navData.isActive ? "active_navbar_class" : "unactive_navbar_class" } to="/profile" > Profile </NavLink> */}
         {/* <NavLink exact className={(navData) => navData.isActive ? "active_navbar_class" : "unactive_navbar_class" } to="/Register" > Register </NavLink>

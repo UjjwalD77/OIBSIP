@@ -1,28 +1,29 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import navigationStrings from '../constants/navigationStrings'
-import './AdminOrders.css'
+import './AdminUsers.css'
 import Toast from '../components/toast'
 import Spinner from '../components/Spinner'
 
-const AdminOrders = () => {
+
+const AdminUsers = () => {
     const [outerArr, setOuterArr] = useState([]);
-    const [orderIdArr,setOrderIdArr] = useState([]);
+    const [userIdArr,setUserIdArr] = useState([]);
     const [nameArr, setNameArr] = useState([]);
-    const [orderStatusArr, setOrderStatusArr] = useState([]);
-    const [orderTimeArr, setOrderTimeArr]  = useState([]);
+    const [emailArr, setEmailArr] = useState([]);
+    const [accountCreatedArr, setAccountCreatedArr]  = useState([]);
     const [buttonArr, setButtonArr] = useState([]);
-    const [amountArr, setAmountArr] = useState([]);
+    const [orderCountArr, setOrderCountArr] = useState([]);
     const [tempValues, setTempVal] = useState({});
     const [showToast,setShowToast] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     
-    let orderidarr = [];
+    let useridarr = [];
     let namearr = [];
-    let ordstatusarr = [];
-    let ordertimearr = [];
+    let emailarr = [];
+    let accountcreatedarr = [];
     let buttonarr = [];
-    let amountarr = [];
+    let ordercount = [];
     let tempvalues = {};
     
     
@@ -46,13 +47,11 @@ const AdminOrders = () => {
 // },[listIsOpen])
     
     const updatedata = async()=>{
-        orderidarr = [];
-        tempvalues = [];
         buttonarr = [];
-        ordstatusarr = [];
+        ordercount = [];
         try{
 
-            const res = await axios.post(navigationStrings.urlGetOrder);
+            const res = await axios.post(navigationStrings.urlGetUserInfo,{type: 'all'});
             if(res.status === 200){
                 console.log(res.data);
                 for (const key in res.data) {
@@ -61,12 +60,8 @@ const AdminOrders = () => {
                         for (const key in element) {    
                             if (Object.hasOwnProperty.call(element, key)) {
                                 const innerele = element[key];
-                                if(key === 'orderId'){
-                                    orderidarr.push(<h3>{innerele}</h3>)
-                                    tempvalues = {...tempvalues, [innerele] : element['status'] }
-                                }
-                                else if (key === 'status'){
-                                    ordstatusarr.push(<StatusDropDown status={innerele} orderId={element['orderId']} />)
+                                if (key === 'count'){
+                                    ordercount.push(<h3>{innerele}</h3>)
                                 }
                             }
                         }
@@ -74,9 +69,8 @@ const AdminOrders = () => {
                     }
                 }
             }
-            setOrderIdArr(orderidarr);
-            setOrderStatusArr(ordstatusarr);
-            setTempVal(tempvalues);
+
+            setOrderCountArr(ordercount);
         }
         catch(e){
             console.log(e);
@@ -86,7 +80,7 @@ const AdminOrders = () => {
     const getorders = async()=>{
         try{
             await setIsLoading(true)
-            const res = await axios.post(navigationStrings.urlGetOrder);
+            const res = await axios.post(navigationStrings.urlGetUserInfo,{type: 'all'});
             await setIsLoading(false)    
             if(res.status === 200){
                 console.log(res.data);
@@ -96,21 +90,25 @@ const AdminOrders = () => {
                         for (const key in element) {    
                             if (Object.hasOwnProperty.call(element, key)) {
                                 const innerele = element[key];
-                                if(key === 'orderId'){
-                                    orderidarr.push(<h3>{innerele}</h3>)
+                                if(key === '_id'){
+                                    useridarr.push(<h3>{innerele}</h3>)
                                     tempvalues = {...tempvalues, [innerele] : element['status'] }
                                 }
-                                else if (key === 'user'){
-                                    namearr.push(<h3>{innerele["name"]}</h3>)
+                                else if (key === 'name'){
+                                    namearr.push(<h3>{innerele}</h3>)
                                 }
-                                else if (key === 'amount'){
-                                    amountarr.push(<h3>{innerele} Rs</h3>)
+                                else if (key === 'email'){
+                                    emailarr.push(<h3>{innerele}</h3>)
                                 }
-                                else if (key === 'status'){
-                                    ordstatusarr.push(<StatusDropDown status={innerele} orderId={element['orderId']} />)
+                                else if (key === 'count'){
+                                    ordercount.push(<h3>{innerele}</h3>)
                                 }
+                                // else if (key === 'status'){
+                                //     ordstatusarr.push(<StatusDropDown status={innerele} orderId={element['orderId']} />)
+                                // }
                                 else if (key === 'createdAt'){
-                                    ordertimearr.push(<h3>{innerele}</h3>)
+                                    // accountcreatedarr.push(<h3>Today</h3>)
+                                    accountcreatedarr.push(<h3>{innerele}</h3>)
                                 }
                             }
                         }
@@ -118,12 +116,12 @@ const AdminOrders = () => {
                     }
                 }
             }
-            setOrderIdArr(orderidarr);
+            setUserIdArr(useridarr);
             setNameArr(namearr);
-            setOrderStatusArr(ordstatusarr);
-            setOrderTimeArr(ordertimearr);
-            setButtonArr(buttonarr);
-            setAmountArr(amountarr);
+            setEmailArr(emailarr);
+            setAccountCreatedArr(accountcreatedarr);
+            // setButtonArr(buttonarr);
+            setOrderCountArr(ordercount);
             setTempVal(tempvalues);
         }
         catch(e){
@@ -149,13 +147,13 @@ useEffect(()=>{
         <>
         {isLoading && <Spinner/>}
         {showToast && <Toast val={'Status Updated'} hidden={false}/>}
-        <h1 style={{textAlign: 'center'}}>All Orders</h1>
+        <h1 style={{textAlign: 'center'}}>Users</h1>
             <div className='admincurordersmain' >
                 <div className='admincurorderscolnames'>
                     <div className='columnname'>
-                        <h3 style={{borderBottom: 7, borderBottomColor:'red', borderBottomStyle: 'solid'}}>Order ID</h3>
+                        <h3 style={{borderBottom: 7, borderBottomColor:'red', borderBottomStyle: 'solid'}}>User ID</h3>
                             <div className='columnval'>
-                                {orderIdArr}
+                                {userIdArr}
                             </div>
                         
                         </div>
@@ -166,29 +164,29 @@ useEffect(()=>{
                             </div>
                         </div>
                     <div className='columnname'>
-                        <h3 style={{borderBottom: 7, borderBottomColor:'red', borderBottomStyle: 'solid'}}>Order Status</h3>
+                        <h3 style={{borderBottom: 7, borderBottomColor:'red', borderBottomStyle: 'solid'}}>Email</h3>
                             <div className='columnval'>
-                                {orderStatusArr}
+                                {emailArr}
                                 {/* <StatusDropDown/> */}
                             </div>
                         </div>
                     <div className='columnname'>
-                        <h3 style={{borderBottom: 7, borderBottomColor:'red', borderBottomStyle: 'solid'}}>Order Amount</h3>
+                        <h3 style={{borderBottom: 7, borderBottomColor:'red', borderBottomStyle: 'solid'}}>Orders Placed</h3>
                             <div className='columnval'>
-                                {amountArr}
+                                {orderCountArr}
                             </div>
                         </div>
-                    <div className='columnname'>
-                        <h3 style={{borderBottom: 7, borderBottomColor:'red', borderBottomStyle: 'solid'}}>Recieved Time</h3>
+                    <div className='columnname'>    
+                        <h3 style={{borderBottom: 7, borderBottomColor:'red', borderBottomStyle: 'solid'}}>Account Created</h3>
                             <div className='columnval'>
-                                {orderTimeArr}
+                                {accountCreatedArr}
                             </div>
                         </div>
-                    
+                            
+                    </div>
                 </div>
-            </div>
         </>
     )
 }
 
-export default AdminOrders
+export default AdminUsers

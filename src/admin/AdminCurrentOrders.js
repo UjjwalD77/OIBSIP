@@ -4,6 +4,7 @@ import navigationStrings from '../constants/navigationStrings'
 import './AdminCurrentOrders.css'
 import {IoIosArrowDropdownCircle} from 'react-icons/io'
 import Toast from '../components/toast'
+import Spinner from '../components/Spinner'
 
 const AdminCurrentOrders = () => {
     const [outerArr, setOuterArr] = useState([]);
@@ -15,6 +16,7 @@ const AdminCurrentOrders = () => {
     const [amountArr, setAmountArr] = useState([]);
     const [tempValues, setTempVal] = useState({});
     const [showToast,setShowToast] = useState(false);
+    const [isLoading,setIsLoading] = useState(false);
     
     let orderidarr = [];
     let namearr = [];
@@ -102,8 +104,10 @@ const AdminCurrentOrders = () => {
         amountarr = [];
         namearr = [];
         try{
+            
 
             const res = await axios.post(navigationStrings.urlGetOrder,{type: 'current'});
+            
             if(res.status === 200){
                 console.log(res.data);
                 for (const key in res.data) {
@@ -146,8 +150,9 @@ const AdminCurrentOrders = () => {
     }
     const getorders = async()=>{
         try{
-
+            setIsLoading(true)
             const res = await axios.post(navigationStrings.urlGetOrder,{type: 'current'});
+            setIsLoading(false)
             if(res.status === 200){
                 console.log(res.data);
                 for (const key in res.data) {
@@ -207,6 +212,7 @@ useEffect(()=>{
   },[])
     return (
         <>
+        {isLoading && <Spinner/>}
         {showToast && <Toast val={'Status Updated'} hidden={false}/>}
         <h1 style={{textAlign: 'center'}}>Current Orders</h1>
             <div className='admincurordersmain' >

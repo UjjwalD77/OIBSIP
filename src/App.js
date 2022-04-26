@@ -13,6 +13,7 @@ import Welcome from './Welcome';
 import AdminDash from './admin/AdminDash';
 import AdminNavbar from './admin/AdminNavbar'
 import AdminOrders from './admin/AdminOrders';
+import AdminUsers from './admin/AdminUsers';
 import { useEffect, useState } from 'react';
 import { authContext } from './context';
 import axios from 'axios';
@@ -74,6 +75,7 @@ function App() {
           <Route  exact path = "/" element={<AdminDash/>}/>
           <Route path = "/currentorders" element={<AdminCurrentOrders/>}/> 
           <Route path = "/orders" element={<AdminOrders/>}/> 
+          <Route path = "/users" element={<AdminUsers/>}/> 
             {/* <Route path = "/profile" element={<Navigate to='/'/>}/>  */}
           </Routes>
       </authContext.Provider>
