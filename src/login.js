@@ -62,22 +62,22 @@ function Login() {
         {isLoading && <Spinner/>}
       <Toast val={'Invalid Email or Password'} hidden={loginError?false:true}/>
         <div className='loginMain'>
-            <div className='blockMain'>
+            <div className='blockLoginMain'>
                 <h4  style={{marginLeft: 20, textAlign: 'center'}}>LOGIN INTO AN ACCOUNT</h4>
-                <div className='inputDiv'>    
+                <div className='inputLoginDiv'>    
                 <text className='text'>Email</text>
-                <input className='inputName' type={'text'}  onChange={updateEmail} placeholder='Enter your Email'/>
+                <input className='inputLoginName' type={'text'}  onChange={updateEmail} placeholder='Enter your Email'/>
                 </div>
-                <div className='inputDiv'>
+                <div className='inputLoginDiv'>
                 <text>Password</text>
-                <input className='inputName' type={'text'} onChange={updatePassword} placeholder='Enter Your Password'/>
+                <input className='inputLoginName' type={'text'} onChange={updatePassword} placeholder='Enter Your Password'/>
                 </div>
-                <div className='buttonDiv'>
+                <div className='buttonLoginDiv'>
                     <div className='button' onClick={handleLogin}>
                         LOGIN
                     </div>
                 </div>
-                <div className='buttonDiv'>
+                <div className='buttonLoginDiv'>
                     <div className='button' onClick={handleAdminLogin}>
                         Admin Login
                     </div>

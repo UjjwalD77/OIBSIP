@@ -10,6 +10,8 @@ export default {
     // urlUpdatePass:'https://pizzadel-app.herokuapp.com/api/auth/updatepassword',
     // urlGetOrder: 'https://pizzadel-app.herokuapp.com/api/auth/getorder',
     // urlUpdateOrder: 'https://pizzadel-app.herokuapp.com/api/auth/updateorder',
+    // urlGetInv: 'https://pizzadel-app.herokuapp.com/api/auth/inventory',
+    // urlUpdateInv: 'https://pizzadel-app.herokuapp.com/api/auth/updateinventory',
     urlRegister : 'http://localhost:3333/api/auth/register',
     urlLogin : 'http://localhost:3333/api/auth/login',
     urlGetUserInfo: 'http://localhost:3333/api/auth/getdata',
@@ -21,5 +23,6 @@ export default {
     urlGetOrder: 'http://localhost:3333/api/auth/getorder',
     urlUpdateOrder: 'http://localhost:3333/api/auth/updateorder',
     urlGetInv: 'http://localhost:3333/api/auth/inventory',
+    urlUpdateInv: 'http://localhost:3333/api/auth/updateinventory'
 
 };

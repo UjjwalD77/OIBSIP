@@ -3,24 +3,24 @@
     display: flex;
     justify-content: center;
 }
-.blockMain {
+.blockLoginMain {
     background-color:  white;
     width: 500px;
     height: 500px;
     align-self: center;
-    margin: 60px;
+    margin: 20px;
     border-radius: 5%;
     border: 1px solid black;
     flex-direction: row;
 }
-.inputDiv{
-    height: 100px;
+.inputLoginDiv{
+    height: 80px;
     display: flex;
     justify-content: center;
     margin-left: 30px;
 }
 
-.inputName{
+.inputLoginName{
     justify-content: center;
     justify-self: center;
     width: 320px;
@@ -29,7 +29,7 @@
     margin-left: auto;
     margin-right: 20px;
 }
-.buttonDiv {
+.buttonLoginDiv {
     display: flex;
     height: 100px;
     width: auto;

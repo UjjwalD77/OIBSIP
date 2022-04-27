@@ -7,7 +7,7 @@ import navigationStrings from '../constants/navigationStrings';
 require('./AdminDash.css')
 
 function AdminDash() {
-
+  const [curDashData, setCurDashData] = useState([])
   const [isLoading, setIsLoading] = useState([])
   const [baseObj,setBaseObj] = useState([])
   const [sauceObj,setSauceObj] = useState([])
@@ -29,15 +29,64 @@ function AdminDash() {
   let sauceobj = [];
   let cheeseobj = [];
   let toppingobj = [];
+  let itemdata = {};
+  let tempitemdata = {};
+  let temptype = '';
 
-  const UpdateInnerButtonDash = () => {
+
+  const handleUpdateButtonClick = async(type)=>{
+    console.log(temptype);
+     let tempdatatoupdate = {}
+     tempdatatoupdate = await {...itemdata,...tempitemdata}
+    //  console.log(tempdatatoupdate)
+    console.log('before request');
+     try{
+       let res = await axios.post(navigationStrings.urlUpdateInv, {type: temptype, newdata:tempitemdata})
+       if(res.status === 200){
+         console.log('successfully updated')
+         updateInv()
+         setShowButton1(false)
+         setShowButton2(false)
+         setShowButton3(false)
+         setShowButton4(false)
+       }
+       else{
+         console.log(res)
+       }
+      }
+      catch(error){
+        console.log('ERROR: ', error);
+      }
+
+  }
+  const UpdateInnerButtonDash = (props) => {
+    let itemtype = props.item;
+    temptype = props.item;
+    itemdata = {};
+    curDashData.map((ele,ind)=>{
+      if(ele.item === itemtype){
+        itemdata = ele;
+      }
+    })
+
+
     return(
-      <div className='updateInnerButtonMain' >
+      <div className='updateInnerButtonMain' onClick={props.onClick} >
         Update Inventory
       </div>
     )
   }
   const AdminDashButton = (props) =>{
+    let itemtype = props.item;
+    itemdata = {};
+    curDashData.map((ele,ind)=>{
+      if(ele.item === itemtype){
+        itemdata = ele;
+      }
+    })
+
+    
+
     return(
       <div className='dashButtonMain' >
         <div className='dashButtonInner'>
@@ -48,6 +97,7 @@ function AdminDash() {
               setShowButton2(false)
               setShowButton3(false)
               setShowButton4(false)
+              tempitemdata = {}
             }} />
           </div>
         </div>
@@ -61,26 +111,33 @@ function AdminDash() {
     
   }
 
-  const updatearr = (src,addkey,addval) =>{
-    let tempobj = {...src, [addkey]: addval}
-    console.log(tempobj);
-    return tempobj;
+  const handleTextChange = (e,item, key,data) => {
+    let val = e.target.value;
+    tempitemdata = {...tempitemdata,...{[key]:val}}
+    console.log(tempitemdata);
   }
-  const getInv = async()=>{
+
+  const updateInv = async()=>{
     try{
-      setIsLoading(true)
+      basearr = [];
+      saucearr = [];
+      cheesearr = [];
+      toppingarr = [];
+      baseobj = [];
+      sauceobj = [];
+      cheeseobj = [];
+      toppingobj = [];
       let curData = await axios.post(navigationStrings.urlGetInv,{type:'get'})
-      setIsLoading(false)
-      // console.log(curData);
+      setCurDashData(curData.data)
       curData.data.map((data,index)=>{
         for (const key in data) {
           if (Object.hasOwnProperty.call(data, key)) {
             const element = data[key];
             if(data['item'] === 'base'){
-              if(key !== '_id' && key !== 'item'){
+              if(key !== '_id' && key !== 'item' && key!== 'createdAt' & key !== 'updatedAt'){
                 let newkey = key.toUpperCase();
                 basearr.push(<h4>{newkey}: {element}</h4>)
-                baseobj.push(<h3>{newkey}<input type={'text'} className="adminDashInpBox" defaultValue={element} ></input></h3>)
+                baseobj.push(<h3>{newkey}<input type={'text'} onChange={(e)=>handleTextChange(e,data['item'], newkey.toLowerCase(), data)} className="adminDashInpBox" defaultValue={element} ></input></h3>)
 
               }
             }
@@ -88,14 +145,14 @@ function AdminDash() {
               if(key !== '_id' && key !== 'item'){
                 let newkey = key.toUpperCase();
               saucearr.push(<h4>{newkey}: {element}</h4>)
-              sauceobj.push(<h3>{newkey}<input type={'text'} className="adminDashInpBox" defaultValue={element} ></input></h3>)
+              sauceobj.push(<h3>{newkey}<input type={'text'} onChange={(e)=>handleTextChange(e,data['item'], newkey.toLowerCase(), data)} className="adminDashInpBox" defaultValue={element} ></input></h3>)
               }
             }
             else if(data['item'] === 'cheese'){
               if(key !== '_id' && key !== 'item'){
                 let newkey = key.toUpperCase();
               cheesearr.push(<h4>{newkey}: {element}</h4>)
-              cheeseobj.push(<h3>{newkey}<input type={'text'} className="adminDashInpBox" defaultValue={element} ></input></h3>)
+              cheeseobj.push(<h3>{newkey}<input type={'text'} onChange={(e)=>handleTextChange(e,data['item'], newkey.toLowerCase(), data)} className="adminDashInpBox" defaultValue={element} ></input></h3>)
 
             }
           }
@@ -103,7 +160,7 @@ function AdminDash() {
               if(key !== '_id' && key !== 'item'){
                 let newkey = key.toUpperCase();
               toppingarr.push(<h4>{newkey}: {element}</h4>)
-              toppingobj.push(<h3>{newkey}<input type={'text'} className="adminDashInpBox" defaultValue={element} ></input></h3>)
+              toppingobj.push(<h3>{newkey}<input type={'text'} onChange={(e)=>handleTextChange(e,data['item'], newkey.toLowerCase(), data)} className="adminDashInpBox" defaultValue={element} ></input></h3>)
 
             } 
           }
@@ -111,10 +168,10 @@ function AdminDash() {
       }
       
     })
-      baseobj.push(<UpdateInnerButtonDash/>)
-      sauceobj.push(<UpdateInnerButtonDash/>)
-      cheeseobj.push(<UpdateInnerButtonDash/>)
-      toppingobj.push(<UpdateInnerButtonDash/>)
+      baseobj.push(<UpdateInnerButtonDash item={'base'} onClick={()=> handleUpdateButtonClick('base')  }/>)
+      sauceobj.push(<UpdateInnerButtonDash item={'sauce'} onClick={()=> handleUpdateButtonClick('sauce')  }/>)
+      cheeseobj.push(<UpdateInnerButtonDash item={'cheese'} onClick={()=> handleUpdateButtonClick('cheese')  }/>)
+      toppingobj.push(<UpdateInnerButtonDash item={'topping'} onClick={()=> handleUpdateButtonClick('topping')  }/>)
       await console.log(basearr)
       setBaseArr(basearr)
       setSauceArr(saucearr)
@@ -129,9 +186,80 @@ function AdminDash() {
       console.log(error);
     }
   }
-useEffect(()=>{
-  getInv()
-},[]);
+  const getInv = async()=>{
+    try{
+      setIsLoading(true)
+      let curData = await axios.post(navigationStrings.urlGetInv,{type:'get'})
+      setCurDashData(curData.data)
+      setIsLoading(false)
+      // console.log(curData);
+      curData.data.map((data,index)=>{
+        for (const key in data) {
+          if (Object.hasOwnProperty.call(data, key)) {
+            const element = data[key];
+            if(data['item'] === 'base'){
+              if(key !== '_id' && key !== 'item' && key!== 'createdAt' & key !== 'updatedAt'){
+                let newkey = key.toUpperCase();
+                basearr.push(<h4>{newkey}: {element}</h4>)
+                baseobj.push(<h3>{newkey}<input type={'text'} onChange={(e)=>handleTextChange(e,data['item'], newkey.toLowerCase(), data)} className="adminDashInpBox" defaultValue={element} ></input></h3>)
+
+              }
+            }
+            else if(data['item'] === 'sauce'){
+              if(key !== '_id' && key !== 'item'){
+                let newkey = key.toUpperCase();
+              saucearr.push(<h4>{newkey}: {element}</h4>)
+              sauceobj.push(<h3>{newkey}<input type={'text'} onChange={(e)=>handleTextChange(e,data['item'], newkey.toLowerCase(), data)} className="adminDashInpBox" defaultValue={element} ></input></h3>)
+              }
+            }
+            else if(data['item'] === 'cheese'){
+              if(key !== '_id' && key !== 'item'){
+                let newkey = key.toUpperCase();
+              cheesearr.push(<h4>{newkey}: {element}</h4>)
+              cheeseobj.push(<h3>{newkey}<input type={'text'} onChange={(e)=>handleTextChange(e,data['item'], newkey.toLowerCase(), data)} className="adminDashInpBox" defaultValue={element} ></input></h3>)
+
+            }
+          }
+            else if(data['item'] === 'topping'){
+              if(key !== '_id' && key !== 'item'){
+                let newkey = key.toUpperCase();
+              toppingarr.push(<h4>{newkey}: {element}</h4>)
+              toppingobj.push(<h3>{newkey}<input type={'text'} onChange={(e)=>handleTextChange(e,data['item'], newkey.toLowerCase(), data)} className="adminDashInpBox" defaultValue={element} ></input></h3>)
+
+            } 
+          }
+        }
+      }
+      
+    })
+      baseobj.push(<UpdateInnerButtonDash item={'base'} onClick={()=> handleUpdateButtonClick()  }/>)
+      sauceobj.push(<UpdateInnerButtonDash item={'sauce'} onClick={()=> handleUpdateButtonClick()  }/>)
+      cheeseobj.push(<UpdateInnerButtonDash item={'cheese'} onClick={()=> handleUpdateButtonClick()  }/>)
+      toppingobj.push(<UpdateInnerButtonDash item={'topping'} onClick={()=> handleUpdateButtonClick()  }/>)
+      await console.log(basearr)
+      setBaseArr(basearr)
+      setSauceArr(saucearr)
+      setToppingArr(toppingarr)
+      setCheeseArr(cheesearr)
+      setBaseObj(baseobj)
+      setSauceObj(sauceobj)
+      setCheeseObj(cheeseobj)
+      setToppingObj(toppingobj)
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+  useEffect(()=>{
+    getInv()
+  },[])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      updateInv()
+    }, 9000);
+  
+    return () => clearInterval(interval);
+  }, []);
 
 
   return (
