@@ -14,6 +14,7 @@ import AdminDash from './admin/AdminDash';
 import AdminNavbar from './admin/AdminNavbar'
 import AdminOrders from './admin/AdminOrders';
 import AdminUsers from './admin/AdminUsers';
+import AdminHeader from './headeradmin';
 import { useEffect, useState } from 'react';
 import { authContext } from './context';
 import axios from 'axios';
@@ -67,7 +68,7 @@ function App() {
   if(usertype === 'admin'){
     return(
       <>
-      <Header/>
+      <AdminHeader/>
       <AdminNavbar/>
       <authContext.Provider value={{token,setToken,id,setId,user,setUserType}}>
         {/* <Welcome/> */}

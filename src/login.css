@@ -1,15 +1,16 @@
 .loginMain {
-    background-color: wheat;
+    background-color: white;
+    /* background-color: wheat; */
     display: flex;
     justify-content: center;
 }
 .blockLoginMain {
     background-color:  white;
     width: 500px;
-    height: 500px;
+    /* height: 500px; */
     align-self: center;
     margin: 20px;
-    border-radius: 5%;
+    border-radius: 5%;   
     border: 1px solid black;
     flex-direction: row;
 }
@@ -18,16 +19,18 @@
     display: flex;
     justify-content: center;
     margin-left: 30px;
+
 }
 
 .inputLoginName{
     justify-content: center;
     justify-self: center;
     width: 320px;
-    height: 30px;
-    border-radius: 10px;
+    height: 50px;
+    /* border-radius: 10px; */
     margin-left: auto;
     margin-right: 20px;
+    font-size: 20px;
 }
 .buttonLoginDiv {
     display: flex;
@@ -56,10 +59,11 @@
     letter-spacing: 2px;
     user-select: none;
 }
-/* .text {
-font-weight: 400;
-background-color: brown;
-} */
+.text {
+font-weight: 600;
+text-align: center;
+margin-top: 15px;
+}
 
 .button:hover {
     background-color: green;

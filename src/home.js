@@ -84,7 +84,7 @@ const Home = () => {
         <div className="blocksColumn">
           <div className="block">
             <h3 className="pizzaTitle">Capsicum Pizza</h3>
-            <img className="pizzapicImg" src={pizzaImg} alt='OOPs'height={200} />
+            <img className="pizzapicImg" src={'https://www.awesomecuisine.com/wp-content/uploads/2014/01/capsicum-pizza.jpg'} alt='OOPs'height={200} />
             <div className='blockBottom'>
               <div className='inputGroup' >
                 <div className='inputDecrement'  onClick={()=>decrementPizzaCount(0)}>-</div>
@@ -96,7 +96,7 @@ const Home = () => {
           </div>
           <div className="block">
           <h3 className="pizzaTitle">Tomato Pizza</h3>
-          <img className="pizzapicImg" src={pizzaImg} alt='OOPs'height={200} />
+          <img className="pizzapicImg" src={'https://galbanicheese.com/wp-content/uploads/2019/09/Margherita-Pizza-72DPI-e1534358128224.jpg'} alt='OOPs'height={200} />
           <div className='blockBottom'>
             <div className='inputGroup' >
               <div className='inputDecrement'  onClick={()=>decrementPizzaCount(1)}>-</div>
@@ -108,7 +108,7 @@ const Home = () => {
           </div>
           <div className="block">
           <h3 className="pizzaTitle">Cheese Burst Pizza</h3>
-          <img className="pizzapicImg" src={pizzaImg} alt='OOPs'height={200} />
+          <img className="pizzapicImg" src={'https://www.apni-shop.com/wp-content/uploads/2022/01/Tandoori-Cheese-Burst-Supreme-Pizza1.jpg  '} alt='OOPs'height={200} />
           <div className='blockBottom'>
             <div className='inputGroup' >
               <div className='inputDecrement'  onClick={()=>decrementPizzaCount(2)}>-</div>
@@ -122,7 +122,7 @@ const Home = () => {
         <div className="blocksColumn">
           <div className="block">
           <h3 className="pizzaTitle">Chicken Tikka Pizza</h3>
-          <img className="pizzapicImg" src={pizzaImg} alt='OOPs'height={200} />
+          <img className="pizzapicImg" src={'https://i.imgur.com/vaRpip7.png'} alt='OOPs'height={200} />
           <div className='blockBottom'>
             <div className='inputGroup' >
               <div className='inputDecrement'  onClick={()=>decrementPizzaCount(3)}>-</div>
@@ -146,7 +146,7 @@ const Home = () => {
           </div>
           <div className="block">
           <h3 className="pizzaTitle">Chicken Supreme Pizza</h3>
-          <img className="pizzapicImg" src={pizzaImg} alt='OOPs'height={200} />
+          <img className="pizzapicImg" src={'https://media.istockphoto.com/photos/chicken-pizza-picture-id489809469?k=20&m=489809469&s=612x612&w=0&h=w6oeQ8ZvFowp8h4PArVnHV3KSm0JyXgQkrxROxn56f4='} alt='OOPs'height={200} />
           <div className='blockBottom'>
             <div className='inputGroup' >
               <div className='inputDecrement'  onClick={()=>decrementPizzaCount(5)}>-</div>

@@ -51,17 +51,17 @@ function Register() {
             <div className='blockMain'>
                 <h4  style={{marginLeft: 20, textAlign: 'center'}}>CREATE AN ACCOUNT</h4>
                 <div className='inputDiv'>
-                    <div>Name</div>
+                    <div className='text'>Name</div>
                     <br/>
                     <input className='inputName' onChange={updateName} type={'text'} placeholder='Enter your Name'/>
                 </div>
                 <div className='inputDiv'>
                     
-                <label>Email</label>
+                <label className='text'>Email</label>
                 <input className='inputName' onChange={updateEmail} type={'text'} placeholder='Enter your Email'/>
                 </div>
                 <div className='inputDiv'>
-                <label>Password</label>
+                <label className='text'>Password</label>
                 <input className='inputName' onChange={updatePassword} type={'text'} placeholder='Enter Your Password'/>
                 </div>
 

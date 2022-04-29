@@ -16,10 +16,10 @@ function Login() {
   const [loginError, setLoginError] = useState(false);
   const [isLoading, setIsLoding] = useState(false);
   const handleAdminLogin = async () => {
-    if(email === 'admin' && password === 'admin'){
+    // if(email === 'devreujjval777@gmail.com' && password === 'admin'){
       setUserType('admin')
       return(<Navigate to='/admindashboard' />)
-    }
+    // }
   }
   const handleLogin = async () => {
     // alert(`${email} ${password}`)
@@ -69,7 +69,7 @@ function Login() {
                 <input className='inputLoginName' type={'text'}  onChange={updateEmail} placeholder='Enter your Email'/>
                 </div>
                 <div className='inputLoginDiv'>
-                <text>Password</text>
+                <text className='text'>Password</text>
                 <input className='inputLoginName' type={'text'} onChange={updatePassword} placeholder='Enter Your Password'/>
                 </div>
                 <div className='buttonLoginDiv'>

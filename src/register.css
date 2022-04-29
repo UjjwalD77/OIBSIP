@@ -1,5 +1,5 @@
 .registerMain {
-    background-color: wheat;
+    background-color: white;
     display: flex;
     justify-content: center;
     /* position: sticky; */
@@ -7,7 +7,7 @@
 .blockMain {
     background-color:  white;
     width: 500px;
-    height: 500px;
+    /* height: 400px; */
     align-self: center;
     margin: 60px;
     border-radius: 5%;
@@ -25,10 +25,11 @@
     justify-content: center;
     justify-self: center;
     width: 320px;
-    height: 30px;
-    border-radius: 10px;
+    height: 50px;
+    /* border-radius: 10px; */
     margin-left: auto;
     margin-right: 20px;
+    font-size: 20px;
 }
 .buttonDiv {
     display: flex;

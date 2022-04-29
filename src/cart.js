@@ -88,6 +88,49 @@ async function displayRazorpay() {
             // setOrder([...cart,{orderId:result.data.orderId,paymentId: result.data.paymentId}])
             let neworder = ([cart,{orderId:result.data.orderId,paymentId: result.data.paymentId}])
             setOrder(neworder)
+            let tempsuperobj  = {
+              item:{
+                'basic base': '0',
+                'chicken masala base': '0',
+                'thin crust base': '0',
+                'veg kekab base': '0',
+                'cheese crust base': '0'
+              },
+              sauce:{
+                'pesto sauce': '0',
+                'salsa sauce': '0',
+                'bbq sauce': '0',
+                'mayonnaise sauce':'0',
+                'alfredo sauce': '0'
+              },
+              cheese: {
+                'mozzarella cheese': '0',
+                'cheddar cheese': '0',
+                'parkmesan cheese': '0',
+                'ricotta cheese': '0',
+                'goat cheese': '0'
+              },
+              topping: {
+                'pepperoni': '0',
+                'mushroom': '0',
+                'extra cheese': '0',
+                'black olives': '0',
+                'tomato': '0'
+              }              
+            }
+            for (const key in Cart) {
+              if (Object.hasOwnProperty.call(Cart, key)) {
+                const element = Cart[key];
+                if('key' === 'Capsicum Pizza'){
+                  if('key' in tempsuperobj){
+                    // tempsuperobj[key] =  tempsuperobj[key]
+                  }
+                  tempsuperobj = {...tempsuperobj, }
+                }
+              }
+            }
+            // let updateinv = await axios.post(navigationStrings.urlUpdateInv, {updatetype: 'incdec',newdata: cart})
+            let updateinv = await axios.post(navigationStrings.urlUpdateInv, {updatetype: 'autoincdecs'})
             setCart({})
           }
           // alert(result.data.msg);

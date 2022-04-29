@@ -1,0 +1,42 @@
+.main {
+    display: flex;  
+    /* flex-direction: row; */
+    justify-content: space-around;
+
+}
+.headerMain {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+
+}
+.headerTextClass {
+    font-size: 20px;
+}
+.headerSmallTextClass {
+    font-size: 10px;
+}
+.headerRightSide {
+    display: flex;
+    margin-left: auto;
+    background-color: blue;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-self: ; */
+    /* margin-left: 10px; */
+    /* justify-self: flex-end; */
+}
+.headerCart {
+    flex-direction: row-reverse;
+    /* justify-tracks: flex-end;
+    justify-self: flex-end;
+    justify-content: flex-end; */
+    /* justify-items: end; */
+}
+.headerProfile {
+    justify-self: flex-end;
+    justify-content: flex-end;
+    justify-items: end;
+
+}
