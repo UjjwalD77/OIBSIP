@@ -39,6 +39,7 @@ function Login() {
         }
       }
         catch(e){
+          setIsLoding(false)
           setLoginError(true)
           setTimeout(() => {
             setLoginError(false)
@@ -70,7 +71,7 @@ function Login() {
                 </div>
                 <div className='inputLoginDiv'>
                 <text className='text'>Password</text>
-                <input className='inputLoginName' type={'text'} onChange={updatePassword} placeholder='Enter Your Password'/>
+                <input className='inputLoginName' type={'password'} onChange={updatePassword} placeholder='Enter Your Password'/>
                 </div>
                 <div className='buttonLoginDiv'>
                     <div className='button' onClick={handleLogin}>

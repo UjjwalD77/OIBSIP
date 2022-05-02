@@ -47,7 +47,7 @@ function Register() {
         {isLoading && <Spinner/>}
         {/* <Header/>  CHANGE THIS LATER*/}
         <Toast  val='Verification Email sent.'  hidden={registered?false:true} />
-        <div className='registerMain'>
+        <div className='registerMainBlock'>
             <div className='blockMain'>
                 <h4  style={{marginLeft: 20, textAlign: 'center'}}>CREATE AN ACCOUNT</h4>
                 <div className='inputDiv'>
@@ -62,7 +62,7 @@ function Register() {
                 </div>
                 <div className='inputDiv'>
                 <label className='text'>Password</label>
-                <input className='inputName' onChange={updatePassword} type={'text'} placeholder='Enter Your Password'/>
+                <input className='inputName' onChange={updatePassword} type={'password'} placeholder='Enter Your Password'/>
                 </div>
 
                 <div className='buttonDiv'>
