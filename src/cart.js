@@ -138,7 +138,7 @@ async function displayRazorpay() {
       prefill: {
           name: "Ujjwal Devre",
           email: "devreujjval@gmail.com",
-          contact: "8780841905",
+          contact: "8789842950",
       },
       notes: {
           address: "SSGMCE Coll, Shegaon",
